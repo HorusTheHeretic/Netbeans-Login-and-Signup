@@ -13,42 +13,41 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.swing.JOptionPane;
 
-
 /**
  *
  * @author user
  */
-public class SignUpFORM extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SignUpFORM.class.getName());
+public class SignUP extends javax.swing.JFrame {
+
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SignUP.class.getName());
 
     /**
      * Creates new form SignUpFORM
      */
-    public SignUpFORM() {
+    public SignUP() {
         initComponents();
         dob.addPropertyChangeListener("date", evt -> calculateAge());
         rbfemale.setText("Female");
         rbmale.setText("Male");
         genderGroup = new javax.swing.ButtonGroup();
         genderGroup.add(rbfemale);
-        genderGroup.add (rbmale);
-        
+        genderGroup.add(rbmale);
+
     }
-    
-    private void calculateAge(){
+
+    private void calculateAge() {
         Date birthdate = dob.getDate();
-        if(birthdate != null){
-            
+        if (birthdate != null) {
+
             Calendar birth = Calendar.getInstance();
             birth.setTime(birthdate);
-            
+
             Calendar today = Calendar.getInstance();
-            
-            int age = today.get(Calendar.YEAR)- birth.get(Calendar.YEAR);
-            
-            if(today.get(Calendar.DAY_OF_YEAR)<birth.get(Calendar.DAY_OF_YEAR)){
-            age--;
+
+            int age = today.get(Calendar.YEAR) - birth.get(Calendar.YEAR);
+
+            if (today.get(Calendar.DAY_OF_YEAR) < birth.get(Calendar.DAY_OF_YEAR)) {
+                age--;
             }
             agetxt.setText(String.valueOf(age));
         }
@@ -65,8 +64,6 @@ public class SignUpFORM extends javax.swing.JFrame {
 
         genderGroup = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         fnametxt = new javax.swing.JTextField();
@@ -89,24 +86,19 @@ public class SignUpFORM extends javax.swing.JFrame {
         loginbtn = new javax.swing.JButton();
         Age = new javax.swing.JLabel();
         lnametxt = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        showPasswordBox = new javax.swing.JCheckBox();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 102));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("SIGN UP");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Set up a new account to continue.");
-
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Confirm Password");
 
@@ -122,37 +114,33 @@ public class SignUpFORM extends javax.swing.JFrame {
         mnametxt.addActionListener(this::mnametxtActionPerformed);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Date of Birth");
 
         agetxt.setEditable(false);
+        agetxt.setBackground(new java.awt.Color(255, 255, 255));
         agetxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 153), 1, true));
         agetxt.addActionListener(this::agetxtActionPerformed);
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel12.setText("Username");
         jLabel12.setToolTipText("");
 
         jLabel15.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel15.setText("First Name");
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel13.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel13.setText("Password");
 
         jLabel16.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel16.setText("Middle Name");
         jLabel16.setToolTipText("");
@@ -161,14 +149,12 @@ public class SignUpFORM extends javax.swing.JFrame {
         dob.addPropertyChangeListener(this::dobPropertyChange);
 
         jLabel17.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel17.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel17.setText("Last Name");
 
         genderGroup.add(rbfemale);
-        rbfemale.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        rbfemale.setForeground(new java.awt.Color(0, 0, 153));
+        rbfemale.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         rbfemale.setText("Female");
         rbfemale.setToolTipText("");
         rbfemale.addActionListener(this::rbfemaleActionPerformed);
@@ -176,94 +162,117 @@ public class SignUpFORM extends javax.swing.JFrame {
         passwordtxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 153), 1, true));
 
         genderGroup.add(rbmale);
-        rbmale.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        rbmale.setForeground(new java.awt.Color(0, 0, 153));
+        rbmale.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         rbmale.setText("Male");
         rbmale.addActionListener(this::rbmaleActionPerformed);
 
         confirmpasswordtxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 153), 1, true));
 
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel14.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel14.setText("Gender");
 
         signupbtn.setBackground(new java.awt.Color(0, 0, 153));
-        signupbtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        signupbtn.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
         signupbtn.setForeground(new java.awt.Color(255, 255, 255));
-        signupbtn.setText("CREATE ACCOUNT");
+        signupbtn.setText("Create Account");
         signupbtn.addActionListener(this::signupbtnActionPerformed);
 
         loginbtn.setBackground(new java.awt.Color(255, 153, 0));
-        loginbtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        loginbtn.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
         loginbtn.setForeground(new java.awt.Color(255, 255, 255));
-        loginbtn.setText("LOG IN");
+        loginbtn.setText("Login");
         loginbtn.addActionListener(this::loginbtnActionPerformed);
         loginbtn.addPropertyChangeListener(this::loginbtnPropertyChange);
 
         Age.setBackground(new java.awt.Color(255, 255, 255));
-        Age.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        Age.setForeground(new java.awt.Color(0, 0, 153));
+        Age.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         Age.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         Age.setText("Age");
 
         lnametxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 153), 1, true));
         lnametxt.addActionListener(this::lnametxtActionPerformed);
 
+        jLabel1.setBackground(new java.awt.Color(0, 0, 204));
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel1.setText("Register");
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jLabel2.setBackground(new java.awt.Color(0, 0, 204));
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        jLabel2.setText("Set up a new account to continue.");
+
+        showPasswordBox.setText("Show password");
+        showPasswordBox.addActionListener(this::showPasswordBoxActionPerformed);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(dob, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                            .addComponent(fnametxt, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(mnametxt)
-                            .addComponent(lnametxt)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(32, 32, 32))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(Age, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(confirmpasswordtxt)
-                            .addComponent(usernametxt, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(passwordtxt, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(rbfemale, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                            .addComponent(rbmale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(agetxt))))
-                .addGap(72, 72, 72))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(157, 157, 157)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(signupbtn, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(confirmpasswordtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(Age, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(32, 32, 32)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(rbmale, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(rbfemale, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(showPasswordBox)
+                                                .addComponent(usernametxt, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                                                .addComponent(passwordtxt))
+                                            .addGap(0, 0, Short.MAX_VALUE))
+                                        .addComponent(agetxt)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(32, 32, 32)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(lnametxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(mnametxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(fnametxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(dob, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)))
+                                    .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(97, 97, 97))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(loginbtn)
-                        .addGap(31, 31, 31)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(signupbtn)
+                            .addComponent(loginbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(193, 193, 193))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(161, 161, 161))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addGap(43, 43, 43)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fnametxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
@@ -271,15 +280,15 @@ public class SignUpFORM extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mnametxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(19, 19, 19)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(lnametxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel11)
                     .addComponent(dob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Age)
                     .addComponent(agetxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -289,7 +298,7 @@ public class SignUpFORM extends javax.swing.JFrame {
                     .addComponent(rbmale))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rbfemale)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(usernametxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
@@ -297,41 +306,43 @@ public class SignUpFORM extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordtxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(showPasswordBox)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(confirmpasswordtxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addGap(18, 18, 18)
-                .addComponent(signupbtn)
+                .addGap(33, 33, 33)
+                .addComponent(signupbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(loginbtn)
-                .addGap(50, 50, 50))
+                .addComponent(loginbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
         );
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\OneDrive\\Documents\\IT\\ComProg2\\GUIproject\\src\\my_package\\Gamecube-PNG-Transparent (1).png")); // NOI18N
+        jLabel3.setText("jLabel2");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(130, 130, 130))
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(181, 181, 181)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(260, 260, 260)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(20, 20, 20)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -401,119 +412,112 @@ public class SignUpFORM extends javax.swing.JFrame {
 
     private void signupbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupbtnActionPerformed
         // TODO add your handling code here:
-try {
-    
-    Connection con = DBConnection.getConnection();
-    
-    String fname = fnametxt.getText().trim();
-    String mname = mnametxt.getText().trim();
-    String lname = lnametxt.getText().trim();
-    String username = usernametxt.getText().trim();
-    String password = new String(passwordtxt.getPassword());
-    String confirmpassword = new String(confirmpasswordtxt.getPassword());
-    String age = agetxt.getText().trim();
-    
-    String gender = "";
-    if (rbmale.isSelected()) {
-        gender = "Male";
-    } else if (rbfemale.isSelected()) {
-        gender = "Female";
-    }
-    
-    if (dob.getDate() == null) {
-        JOptionPane.showMessageDialog(this, "Please select Date of Birth");
-        return;
-    }
-    
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-    String birthdate = sdf.format(dob.getDate());
-    
-    if (fname.isEmpty() || mname.isEmpty() || lname.isEmpty() || 
-        username.isEmpty() || password.isEmpty() || confirmpassword.isEmpty() || 
-        age.isEmpty()) {  // Added age validation
-        
-        JOptionPane.showMessageDialog(this, "Please fill out all fields.");
-        return;
-    }
-    
-    if (gender.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Please select a gender.");
-        return;
-    }
-    
-    if (!password.equals(confirmpassword)) {
-        
-        JOptionPane.showMessageDialog(this, "Password does not match.");
-        return;  // Added missing return
-    }
-        String hashPassword = hashPassword(password);
-    
-        String sql = "INSERT INTO users (fname, mname, lname, dob, age, gender, username, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        PreparedStatement pst = con.prepareStatement(sql);
-        
-        pst.setString(1, fname);
-        pst.setString(2, mname);
-        pst.setString(3, lname);
-        pst.setString(4, birthdate);
-        pst.setString(5, age);
-        pst.setString(6, gender);
-        pst.setString(7, username);
-        pst.setString(8, hashPassword);
-        
-        int rowsInserted = pst.executeUpdate();
-        
-        if (rowsInserted > 0){
-            JOptionPane.showMessageDialog(this, "Signup Successful.");
-            clearFields();
-        }
-        
-    
-} catch (Exception e) {
-    JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
-    e.printStackTrace();
+        try {
+
+            Connection con = DBConnection.getConnection();
+
+            String fname = fnametxt.getText().trim();
+            String mname = mnametxt.getText().trim();
+            String lname = lnametxt.getText().trim();
+            String username = usernametxt.getText().trim();
+            String password = new String(passwordtxt.getPassword());
+            String confirmpassword = new String(confirmpasswordtxt.getPassword());
+            String age = agetxt.getText().trim();
+
+            String gender = "";
+            if (rbmale.isSelected()) {
+                gender = "Male";
+            } else if (rbfemale.isSelected()) {
+                gender = "Female";
+            }
+
+            if (dob.getDate() == null) {
+                JOptionPane.showMessageDialog(this, "Please select Date of Birth");
+                return;
+            }
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String birthdate = sdf.format(dob.getDate());
+
+            if (fname.isEmpty() || mname.isEmpty() || lname.isEmpty()
+                    || username.isEmpty() || password.isEmpty() || confirmpassword.isEmpty()
+                    || age.isEmpty()) {  // Added age validation
+
+                JOptionPane.showMessageDialog(this, "Please fill out all fields.");
+                return;
+            }
+
+            if (gender.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please select a gender.");
+                return;
+            }
+
+            if (!password.equals(confirmpassword)) {
+
+                JOptionPane.showMessageDialog(this, "Password does not match.");
+                return;  // Added missing return
+            }
+            String hashPassword = hashPassword(password);
+
+            String sql = "INSERT INTO users (fname, mname, lname, dob, age, gender, username, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setString(1, fname);
+            pst.setString(2, mname);
+            pst.setString(3, lname);
+            pst.setString(4, birthdate);
+            pst.setString(5, age);
+            pst.setString(6, gender);
+            pst.setString(7, username);
+            pst.setString(8, hashPassword);
+
+            int rowsInserted = pst.executeUpdate();
+
+            if (rowsInserted > 0) {
+                JOptionPane.showMessageDialog(this, "Signup Successful.");
+                clearFields();
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+            e.printStackTrace();
     }//GEN-LAST:event_signupbtnActionPerformed
-   
-}
-
-private void clearFields(){
-    
-    fnametxt.setText("");
-    mnametxt.setText("");
-    lnametxt.setText("");
-    usernametxt.setText("");
-    passwordtxt.setText("");
-    confirmpasswordtxt.setText("");
-    agetxt.setText("");
-    dob.setDate(null);
-    rbmale.setSelected(false);
-    rbfemale.setSelected(false);
-    
-    
-} 
-        
-        
-        
-private String hashPassword(String password) {
-    try {
-        MessageDigest md = MessageDigest.getInstance("SHA-256");
-        byte[] hash = md.digest(password.getBytes());
-        StringBuilder sb = new StringBuilder();
-        
-        for (byte b : hash) {
-        sb.append(String.format("%02x", b));
-        
-        }
-        return sb.toString();
-        
-    } catch (NoSuchAlgorithmException e) {
-        
-        throw new RuntimeException("Error hashing password", e);
     }
-    
-    
-}
+    private void showPasswordBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showPasswordBoxActionPerformed
+        if (showPasswordBox.isSelected()) {
+            passwordtxt.setEchoChar((char) 0); // This correctly reveals the passwordtxt field text
+        } else {
+            passwordtxt.setEchoChar('•');      // This masks it back with dots
+        }
+    }//GEN-LAST:event_showPasswordBoxActionPerformed
 
+    private void clearFields() {
+        fnametxt.setText("");
+        mnametxt.setText("");
+        lnametxt.setText("");
+        usernametxt.setText("");
+        passwordtxt.setText("");
+        confirmpasswordtxt.setText("");
+        agetxt.setText("");
+        dob.setDate(null);
+        genderGroup.clearSelection(); // This cleanly resets your radio buttons
+    }
 
+    private String hashPassword(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hash = md.digest(password.getBytes());
+            StringBuilder sb = new StringBuilder();
+
+            for (byte b : hash) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException("Error hashing password", e);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -534,6 +538,7 @@ private String hashPassword(String password) {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField lnametxt;
@@ -542,6 +547,7 @@ private String hashPassword(String password) {
     private javax.swing.JPasswordField passwordtxt;
     private javax.swing.JRadioButton rbfemale;
     private javax.swing.JRadioButton rbmale;
+    private javax.swing.JCheckBox showPasswordBox;
     private javax.swing.JButton signupbtn;
     private javax.swing.JTextField usernametxt;
     // End of variables declaration//GEN-END:variables

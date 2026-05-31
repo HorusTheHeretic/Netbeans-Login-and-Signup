@@ -23,7 +23,7 @@ public class DBConnection {
         
         if(con == null || con.isClosed()){
             
-            String url = "jdbc:mysql://localhost:3306/firstjavaapp";
+            String url = "jdbc:mysql://localhost:3306/login_registration";
             String user = "root";
             String password = "";
             
